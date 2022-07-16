@@ -17,7 +17,7 @@ namespace tp_final_2
         AñadirLocal añadir;
         Iniciar tanto = new Iniciar();
 
-      
+
         public Form1()
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace tp_final_2
         {
         }
 
-        
+
         private void button2_Click(object sender, EventArgs e) //Boton añadir Local
         {
             añadir = new AñadirLocal();
@@ -37,7 +37,7 @@ namespace tp_final_2
             {
 
                 string nombreEquipo1 = añadir.textBox11.Text;
-                Local.NombreEquipo(label1.Text=nombreEquipo1);
+                Local.NombreEquipo(label1.Text = nombreEquipo1);
 
                 string jugador1 = añadir.textBox1.Text;
                 int numjugador1 = Convert.ToInt32(añadir.textBox6.Text);
@@ -61,21 +61,21 @@ namespace tp_final_2
                 int numjugador5 = Convert.ToInt32(añadir.textBox10.Text);
                 Local.CrearJ(jugador5, numjugador5);
 
-                
+
 
 
                 listBox1.Items.Clear();
-                
-                listBox1.Items.Add(string.Format("{0} - {1}",numjugador1,jugador1));
-                listBox1.Items.Add(string.Format("{0} - {1}",numjugador2,jugador2));
-                listBox1.Items.Add(string.Format("{0} - {1}",numjugador3,jugador3));
-                listBox1.Items.Add(string.Format("{0} - {1}",numjugador4,jugador4));
-                listBox1.Items.Add(string.Format("{0} - {1}",numjugador5, jugador5));
 
-                    
+                listBox1.Items.Add(string.Format("{0} - {1}", numjugador1, jugador1));
+                listBox1.Items.Add(string.Format("{0} - {1}", numjugador2, jugador2));
+                listBox1.Items.Add(string.Format("{0} - {1}", numjugador3, jugador3));
+                listBox1.Items.Add(string.Format("{0} - {1}", numjugador4, jugador4));
+                listBox1.Items.Add(string.Format("{0} - {1}", numjugador5, jugador5));
+
+
 
             }
-            añadir.DialogResult= DialogResult;
+            añadir.DialogResult = DialogResult;
             añadir.Dispose();
 
         }
@@ -116,12 +116,12 @@ namespace tp_final_2
 
 
                 listBox2.Items.Clear();
-                listBox2.Items.Add(string.Format("{0} - {1}",numjugador1,jugador1));
-                listBox2.Items.Add(string.Format("{0} - {1}",numjugador2,jugador2));
-                listBox2.Items.Add(string.Format("{0} - {1}",numjugador3,jugador3));
-                listBox2.Items.Add(string.Format("{0} - {1}",numjugador4,jugador4));
-                listBox2.Items.Add(string.Format("{0} - {1}",numjugador5,jugador5));
-                
+                listBox2.Items.Add(string.Format("{0} - {1}", numjugador1, jugador1));
+                listBox2.Items.Add(string.Format("{0} - {1}", numjugador2, jugador2));
+                listBox2.Items.Add(string.Format("{0} - {1}", numjugador3, jugador3));
+                listBox2.Items.Add(string.Format("{0} - {1}", numjugador4, jugador4));
+                listBox2.Items.Add(string.Format("{0} - {1}", numjugador5, jugador5));
+
 
             }
 
@@ -130,7 +130,7 @@ namespace tp_final_2
 
         }
 
-       
+
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
@@ -144,36 +144,37 @@ namespace tp_final_2
             {
                 DialogResult result = tanto.ShowDialog();
 
-            if (result == DialogResult.OK)
-            {
-                Local.Anotar( 3,listBox1.SelectedIndex);
+                if (result == DialogResult.OK)
+                {
+                    Local.Anotar(3, listBox1.SelectedIndex);
 
-            }
-            if(result == DialogResult.No)
-            {
-                Local.Anotar(2, listBox1.SelectedIndex);
+                }
+                if (result == DialogResult.No)
+                {
+                    Local.Anotar(2, listBox1.SelectedIndex);
 
-            }
-            if(result == DialogResult.Retry)
-            {
-                Local.Anotar(1, listBox1.SelectedIndex);
+                }
+                if (result == DialogResult.Retry)
+                {
+                    Local.Anotar(1, listBox1.SelectedIndex);
 
-            }
-            if (result == DialogResult.Yes)
-            {
-                Local.Faltas(listBox1.SelectedIndex);
-               
-            }
-                
+                }
+                if (result == DialogResult.Yes)
+                {
+                    Local.Faltas(listBox1.SelectedIndex);
+
+                }
+
             }
             else
             {
                 MessageBox.Show("El jugador seleccionado no puede jugar");
-;           }
+                ;
+            }
 
             label3.Text = Local.PuntosTotales().ToString("00");
             label5.Text = Local.FaltasTotales().ToString("00");
-            
+
         }
 
 
@@ -182,7 +183,7 @@ namespace tp_final_2
 
         }
 
-       
+
         private void listBox2_DoubleClick(object sender, EventArgs e)
         {
             if (visitante.PuedeJugar(listBox2.SelectedIndex) == false)
@@ -214,50 +215,76 @@ namespace tp_final_2
 
             }
 
-                label4.Text = visitante.PuntosTotales().ToString("00");
-                label6.Text = visitante.FaltasTotales().ToString("00");
+            label4.Text = visitante.PuntosTotales().ToString("00");
+            label6.Text = visitante.FaltasTotales().ToString("00");
         }
-                
 
-        
+
+
 
         private void label4_Click(object sender, EventArgs e)
         {
 
         }
-        
+
         private void button4_Click(object sender, EventArgs e)
         {
             Resultado r = new Resultado();
+            
+           
 
-            if (Local.PuntosTotales() > visitante.PuntosTotales())
-            {
+                if (Local.PuntosTotales() > visitante.PuntosTotales())
+                {
 
-                r.listBox1.Items.Add(String.Format("El equipo ganador es: {0}", Local.NombreE));
+                    r.listBox1.Items.Add(String.Format("El equipo ganador es: {0}", Local.NombreE));
+
+                r.listBox1.Items.Add(String.Format("El jugador que mas puntos anoto para los locales es: {0}", Local.Mayores()));
+                r.listBox1.Items.Add(String.Format("------------------------------------------------------------------------------------------------------------------"));
+                r.listBox1.Items.Add(String.Format("El jugador que menos puntos anoto para los locales es: {0}", Local.Menores()));
+                r.listBox1.Items.Add(String.Format("------------------------------------------------------------------------------------------------------------------"));
+                r.listBox1.Items.Add(String.Format("El jugador que mas puntos anoto para los visitantes es: {0}", visitante.Mayores()));
+                r.listBox1.Items.Add(String.Format("------------------------------------------------------------------------------------------------------------------"));
+                r.listBox1.Items.Add(String.Format("El jugador que menos puntos anoto para los visitantes es: {0}", visitante.Menores()));
+                r.listBox1.Items.Add(String.Format("------------------------------------------------------------------------------------------------------------------"));
+
             }
-            else if(Local.PuntosTotales() == visitante.PuntosTotales())
-            {
-                r.listBox1.Items.Add(String.Format("                                                   Empate"));
+            else if (Local.PuntosTotales() == visitante.PuntosTotales())
+                {
+                    r.listBox1.Items.Add(String.Format("                                                   Empate"));
+
+                r.listBox1.Items.Add(String.Format("El jugador que mas puntos anoto para los locales es: {0}", Local.Mayores()));
+                r.listBox1.Items.Add(String.Format("------------------------------------------------------------------------------------------------------------------"));
+                r.listBox1.Items.Add(String.Format("El jugador que menos puntos anoto para los locales es: {0}", Local.Menores()));
+                r.listBox1.Items.Add(String.Format("------------------------------------------------------------------------------------------------------------------"));
+                r.listBox1.Items.Add(String.Format("El jugador que mas puntos anoto para los visitantes es: {0}", visitante.Mayores()));
+                r.listBox1.Items.Add(String.Format("------------------------------------------------------------------------------------------------------------------"));
+                r.listBox1.Items.Add(String.Format("El jugador que menos puntos anoto para los visitantes es: {0}", visitante.Menores()));
+                r.listBox1.Items.Add(String.Format("------------------------------------------------------------------------------------------------------------------"));
+
             }
             else
-            {
-                r.listBox1.Items.Add(String.Format("El equipo ganador es: {0}", visitante.NombreE));
-            
+                {
+                    r.listBox1.Items.Add(String.Format("El equipo ganador es: {0}", visitante.NombreE));
 
-            r.listBox1.Items.Add(String.Format("El jugador que mas puntos anoto para los locales es: {0}", Local.Mayores()));
-            r.listBox1.Items.Add(String.Format("------------------------------------------------------------------------------------------------------------------"));
-            r.listBox1.Items.Add(String.Format("El jugador que menos puntos anoto para los locales es: {0}", Local.Menores()));
-            r.listBox1.Items.Add(String.Format("------------------------------------------------------------------------------------------------------------------"));
-            r.listBox1.Items.Add(String.Format("El jugador que mas puntos anoto para los visitantes es: {0}", visitante.Mayores()));
-            r.listBox1.Items.Add(String.Format("------------------------------------------------------------------------------------------------------------------"));
-            r.listBox1.Items.Add(String.Format("El jugador que menos puntos anoto para los visitantes es: {0}", visitante.Menores()));
-            r.listBox1.Items.Add(String.Format("------------------------------------------------------------------------------------------------------------------"));
-            for(int i = 0; i < 5; i++)
-            {
-                r.listBox2.Items.Add(String.Format(Local.Nom(i)));
+
+                r.listBox1.Items.Add(String.Format("El jugador que mas puntos anoto para los locales es: {0}", Local.Mayores()));
+                r.listBox1.Items.Add(String.Format("------------------------------------------------------------------------------------------------------------------"));
+                r.listBox1.Items.Add(String.Format("El jugador que menos puntos anoto para los locales es: {0}", Local.Menores()));
+                r.listBox1.Items.Add(String.Format("------------------------------------------------------------------------------------------------------------------"));
+                r.listBox1.Items.Add(String.Format("El jugador que mas puntos anoto para los visitantes es: {0}", visitante.Mayores()));
+                r.listBox1.Items.Add(String.Format("------------------------------------------------------------------------------------------------------------------"));
+                r.listBox1.Items.Add(String.Format("El jugador que menos puntos anoto para los visitantes es: {0}", visitante.Menores()));
+                r.listBox1.Items.Add(String.Format("------------------------------------------------------------------------------------------------------------------"));
+
+
+
             }
-            r.ShowDialog();
-            
+            Local.burbuja();
+            for (int i = 0; i < 5; i++)
+                {
+                    r.listBox2.Items.Add(String.Format(Local.Nom(i)));
+                }
+            if (r.ShowDialog() == DialogResult.OK) { }
             
         }
     }

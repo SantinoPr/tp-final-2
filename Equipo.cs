@@ -42,7 +42,7 @@ namespace tp_final_2
         public void burbuja()
         {
             Jugador aux = new Jugador(0, "cero");
-            int mayor = 0;
+          
             bool bandera = false;
 
             for (int i = 0; i < jugador.Length - 1; i++)
